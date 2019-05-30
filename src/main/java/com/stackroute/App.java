@@ -27,5 +27,14 @@ public class App
         System.out.println("---ResultSet MetaData---");
         ResultSetMetaDataDemo resultSetMetaDataDemo=new ResultSetMetaDataDemo();
         resultSetMetaDataDemo.getResultSetMetaData();
+        System.out.println("---Jdbc Transaction---");
+        JdbcTransactionDemo jdbcTransactionDemo=new JdbcTransactionDemo();
+        jdbcTransactionDemo.jdbcTransaction();
+        System.out.println("Row deleted");
+        // System.out.println("Saves DML change");
+        System.out.println("---Using rowset---");
+        RowSetDemo rowSetDemo=new RowSetDemo();
+        //rowSetDemo.getAllStudents();
+        //rowSetDemo.getCourseByName("j2ee");
     }
 }

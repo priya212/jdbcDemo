@@ -31,6 +31,12 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.15</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.sql/rowset -->
+   <!-- <dependency>
+      <groupId>javax.sql</groupId>
+      <artifactId>rowset</artifactId>
+      <version>1.0.1</version>
+    </dependency>-->
 
   </dependencies>
 
