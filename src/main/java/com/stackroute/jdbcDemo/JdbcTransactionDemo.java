@@ -6,13 +6,14 @@ public class JdbcTransactionDemo {
     public void jdbcTransaction()
     {
         //register driver
-        try {
+        try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
+             Statement statement=connection.createStatement();){
             Class.forName("com.mysql.cj.jdbc.Driver");
             //obtain connection
-            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
+            //Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
             connection.setAutoCommit(false);
-            Statement statement=connection.createStatement();
-            int count=statement.executeUpdate("insert into course value(12,'Java',7)");
+            //Statement statement=connection.createStatement();
+            int count=statement.executeUpdate("insert into course value(16,'Java',7)");
             System.out.println(count+" row inserted");
             // delete the latest DML change
             connection.rollback();
@@ -22,7 +23,5 @@ public class JdbcTransactionDemo {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 }

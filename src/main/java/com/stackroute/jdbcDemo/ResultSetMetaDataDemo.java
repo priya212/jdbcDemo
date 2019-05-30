@@ -5,14 +5,16 @@ import java.sql.*;
 public class ResultSetMetaDataDemo {
     public void getResultSetMetaData()
     {
-        try {
+        try (Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
+             Statement statement=connection.createStatement();
+             ResultSet resultSet=statement.executeQuery("select * from course");){
             //register driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             //obtain connection
-            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
+           /* Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
             Statement statement=connection.createStatement();
             ResultSet resultSet=statement.executeQuery("select * from course");
-            ResultSetMetaData resultSetMetaData=resultSet.getMetaData();
+           */ ResultSetMetaData resultSetMetaData=resultSet.getMetaData();
             System.out.println("No of columns : "+resultSetMetaData.getColumnCount());
             System.out.println("Column 1 Name : "+resultSetMetaData.getColumnName(1));
             System.out.println("Datatype of 2 column : "+resultSetMetaData.getColumnTypeName(2));

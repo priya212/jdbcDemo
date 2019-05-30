@@ -8,11 +8,12 @@ import java.sql.SQLException;
 public class DatabaseMetaDataDemo {
     public void getDatabaseMetaData()
     {
+        Connection connection=null;
         try {
             //register driver
             Class.forName("com.mysql.cj.jdbc.Driver");
             //obtain connection
-            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
+            connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/abc","root","Root@123");
             DatabaseMetaData databaseMetaData=connection.getMetaData();
 
             System.out.println("Driver Name : "+databaseMetaData.getDriverName());
@@ -24,6 +25,15 @@ public class DatabaseMetaDataDemo {
             System.out.println("URL : "+databaseMetaData.getURL());
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Exception Thrown"+ e.getStackTrace());
+        }
+        finally {
+            try {
+                if(connection != null ) {
+                    connection.close();;
+                }
+            }catch (SQLException e) {
+                System.out.println(e);
+            }
         }
     }
 }

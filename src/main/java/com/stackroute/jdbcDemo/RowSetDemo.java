@@ -1,5 +1,7 @@
 package com.stackroute.jdbcDemo;
 
+import com.sun.rowset.JdbcRowSetImpl;
+
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
@@ -7,11 +9,12 @@ import java.sql.*;
 public class RowSetDemo {
     public void getAllStudents()
     {
-    /*    try {
+        try {
             //register driver
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            //JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            JdbcRowSet rowSet=new JdbcRowSetImpl();
             rowSet.setUrl("jdbc:mysql://localhost:3306/abc");
             rowSet.setUsername("root");
             rowSet.setPassword("Root@123");
@@ -27,7 +30,7 @@ public class RowSetDemo {
 
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Exception Thrown "+ e.getStackTrace());
-        }*/
+        }
     }
 
     public void getCourseByName(String name)

@@ -16,10 +16,10 @@ public class App
         preparedStatementDemo.getCourseByName("angular");
         System.out.println("Get Course By name and duration");
         preparedStatementDemo.getCourseByNameAndDuration("spring",4);
-        /*System.out.println("---Using add batch---");
+        System.out.println("---Using add batch---");
         JdbcBatchProcessingDemo jdbcBatchProcessingDemo=new JdbcBatchProcessingDemo();
         jdbcBatchProcessingDemo.usingBatchProcessing();
-        dataManager.getAllStudents();*/
+        dataManager.getAllStudents();
 
         System.out.println("---Database MetaData---");
         DatabaseMetaDataDemo databaseMetaDataDemo=new DatabaseMetaDataDemo();
@@ -34,7 +34,7 @@ public class App
         // System.out.println("Saves DML change");
         System.out.println("---Using rowset---");
         RowSetDemo rowSetDemo=new RowSetDemo();
-        //rowSetDemo.getAllStudents();
+        rowSetDemo.getAllStudents();
         //rowSetDemo.getCourseByName("j2ee");
     }
 }
